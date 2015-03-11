@@ -1,1 +1,2 @@
-R CMD BATCH rowMin.R
+R CMD BATCH rowMins.R
+cat rowMins.Rout

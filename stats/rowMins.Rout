@@ -17,8 +17,32 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
+[Previously saved workspace restored]
+
+> library('matrixStats')
+matrixStats v0.14.0 (2015-02-13) successfully loaded. See ?matrixStats for help.
+> 
 > x <- matrix(1:50, nrow = 5, ncol = 10)
+> print (x)
+     [,1] [,2] [,3] [,4] [,5] [,6] [,7] [,8] [,9] [,10]
+[1,]    1    6   11   16   21   26   31   36   41    46
+[2,]    2    7   12   17   22   27   32   37   42    47
+[3,]    3    8   13   18   23   28   33   38   43    48
+[4,]    4    9   14   19   24   29   34   39   44    49
+[5,]    5   10   15   20   25   30   35   40   45    50
+> 
+> #y <- rowMins_R(x)
+> 
+> y <- matrixStats::colVars(x)
+> print (y)
+ [1] 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5
+> 
+> #y <- apply(x, MARGIN = 2, FUN = vars)
+> 
+> y <- colVars(x, rows = -1:20, cols = 101:400)
+> print (y)
+ [1] 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5 2.5
 > 
 > proc.time()
    user  system elapsed 
-  0.320   0.101   0.392 
+  0.420   0.119   0.548 
